@@ -48,8 +48,7 @@ export const deleteDevType = async (req: Request, res: Response) => {
     }
 
     await DevType.findByIdAndDelete(id).session(session);
-
-    await Framework.deleteMany({ DevTypeId: id }).session(session);
+    await Framework.deleteMany({ DevType: id }).session(session);
 
     await session.commitTransaction();
     session.endSession();

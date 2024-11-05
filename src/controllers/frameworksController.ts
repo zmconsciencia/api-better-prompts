@@ -7,10 +7,10 @@ export const getFrameworks = async (req: Request, res: Response) => {
     let query = Framework.find();
 
     if (devType) {
-      query = query.where("DevTypeId").equals(devType);
+      query = query.where("DevType").equals(devType);
     }
 
-    const frameworks = await query.populate("DevTypeId");
+    const frameworks = await query.populate("DevType");
     res.json(frameworks);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
