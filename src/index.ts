@@ -19,7 +19,8 @@ app.use("/api/devtypes", devTypesRoute);
 app.use("/api/frameworks", frameworksRoute);
 
 mongoose
-  .connect(process.env.MONGO_URI || "", {})
+  .connect(process.env.MONGO_URI || "", {
+  })
   .then(() => {
     console.log("MongoDB connected");
     app.listen(port, () => {
